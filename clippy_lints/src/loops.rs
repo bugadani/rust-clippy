@@ -1524,7 +1524,7 @@ impl<'tcx> Delegate<'tcx> for MutatePairDelegate {
     }
 }
 
-impl<'tcx> MutatePairDelegate {
+impl MutatePairDelegate {
     fn mutation_span(&self) -> (Option<Span>, Option<Span>) {
         (self.span_low, self.span_high)
     }
@@ -2290,7 +2290,7 @@ struct HasBreakOrReturnVisitor {
     has_break_or_return: bool,
 }
 
-impl<'a, 'tcx> Visitor<'tcx> for HasBreakOrReturnVisitor {
+impl<'tcx> Visitor<'tcx> for HasBreakOrReturnVisitor {
     type Map = Map<'tcx>;
 
     fn visit_expr(&mut self, expr: &'tcx Expr<'_>) {
